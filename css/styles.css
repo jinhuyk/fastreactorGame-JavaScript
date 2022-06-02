@@ -21,8 +21,26 @@
     margin: 30px;
     position: relative  ;
     left: -50px;
+    overflow: hidden;
 
 }
 .btn {
     margin: 6px;
+}
+
+html {
+    overflow-x :  hidden;
+}
+.alien {
+    float: left;
+    width:33%;
+    margin: auto;
+}
+
+.desc {
+    font-size: medium;
+}
+.inso {
+    color: white;
+    margin-bottom: -15px;
 }

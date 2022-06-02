@@ -13,24 +13,37 @@
     />
   </head>
 
-  <body style="background-color: black;">
+  <body style="background-color: black; overflow-x: hidden;">
     <div class="body">
-      <div class="head"><img src="/resources/img/logo/002.png" style="width: 99%;"></div>
+        
+        <audio id='audio_play' src="/resources/aud/theme.m4a"></audio>
+      <div class="head"><img src="/resources/img/logo/002.png" style="width: 99%; cursor: pointer;" onclick="window.location.reload()"></div>
       <div class="menu">
+
         <button type="button" class="btn btn-outline-warning start-btn" onclick="Start()">시작하기</button>
       </div>
+      
       <div class="main">
           <div class="score-view">
+              <div class="inso" style="display: none;">score</div>
             <div class="score"></div>
           </div>
           <div class="game-view">
-            <img class="info" style="display: none; margin: auto; text-align: center;">
+            
+            <img class="info" style="display: none; width: 60%; margin: auto; text-align: center;">
             <div class="timer"></div>
             <div class="game_text" style="display: none; margin: 20px;"></div>
           </div>
           <div class="touch-view">
 
           </div>
+          <div>
+              <span>
+                <img src="/resources/img/on.png" width="20px" style="cursor:pointer" onclick="On()">
+                <img src="/resources/img/mute.png" width="20px" style="cursor:pointer" onclick="Mute()">
+    
+              </span>
+                      </div>
       </div>
       <hr>
     <p style="text-align: center; font-size: 5px; color:rgb(150, 150, 150)">Copyright ⓒ 2022 jinhyuk All rights reserved.</p>
