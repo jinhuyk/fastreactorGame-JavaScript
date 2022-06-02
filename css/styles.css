@@ -1,0 +1,28 @@
+.body {
+    text-align: center;
+}
+
+.timer {
+    font-size: 200px;
+    color: white;
+}
+.game_text {
+    font-size: 80px;
+    font-weight: bolder;
+    color: white;
+}
+.score {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+}
+.mcatch{
+    text-align: left;
+    margin: 30px;
+    position: relative  ;
+    left: -50px;
+
+}
+.btn {
+    margin: 6px;
+}
