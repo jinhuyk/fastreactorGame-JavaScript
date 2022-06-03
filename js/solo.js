@@ -21,7 +21,7 @@ function SoloPlay(score, stage,fast){
     faster = fast;
     clearInterval(time);
     clearTimeout(settime)
-    if(stage ==1){
+    if(stage ==10){
         Result(score)
     }
     else{
