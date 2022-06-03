@@ -93,7 +93,9 @@ function Result(score){
     $(".game_text").html(text_box+p)
     $(".game_text").css("display","block")
     audio.pause()
+    rad.volume = 0.1
     rad.play()
+    
     
     let Nnew=0
     

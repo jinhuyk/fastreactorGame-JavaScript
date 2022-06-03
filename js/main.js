@@ -92,7 +92,9 @@ function Mute(){
     audio.pause()
 }
 function On(){
+    audio.volume=0.1
     audio.play()
+    
     audio.loop ='loop'
 }
 
