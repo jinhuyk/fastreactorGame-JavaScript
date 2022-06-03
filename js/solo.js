@@ -396,7 +396,7 @@ function Success(count){
     $(".game_text").css("background-color","transparent")
     let text_box = '<div>{}</div>'
     text_box = text_box.replace('{}',"성공!")
-    $(".game_text").html(text_box)
+    $(".game_text").html(text_box).css("background-color","transparent")
 
     settime =setTimeout(function(){
         clearTimeout(settime)
@@ -407,7 +407,7 @@ function Success(count){
 function Fail(count){
     let text_box = '<div>{}</div>'
     text_box = text_box.replace('{}',"땡!")
-    $(".game_text").html(text_box)
+    $(".game_text").html(text_box).css("background-color","transparent")
     settime =setTimeout(function(){
         clearTimeout(settime)
         SoloPlay(soloscore-5, solostage+1,faster+10)
