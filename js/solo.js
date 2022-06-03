@@ -15,6 +15,7 @@ function SoloPlay(score, stage,fast){
     $(".soloplay-btn").css("display","none")
     $("#ansbtn").css("display","none")
     $(".game_text").css("display","none").css("color","white")
+    $(".game_text").css("background-color","transparent")
     soloscore = score;
     solostage = stage;
     faster = fast;
@@ -186,7 +187,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             PMPD()
-        },900-faster)
+        },1000-faster)
     }
 }
 
@@ -311,7 +312,7 @@ function CText(count){
     let ranNum = Math.floor(Math.random()*5)
     let ranNum2 = Math.floor(Math.random()*5)
     if(soloscore >= 90){
-        let stpd = ranNum2+=3
+        let stpd = ranNum2++
         if(stpd > 4) stpd -=4;
         $(".game_text").css("background-color",colortext[ranNum].color[stpd])
     }
@@ -320,7 +321,7 @@ function CText(count){
     console.log(count)
     $(document).on("click","#ansbtn",function(){
         if(ranNum == ranNum2){
-            $(".game_text").css("background-color","transparent")
+            
             console.log("good")
             clearInterval(ongame)
             Success(count)
@@ -392,6 +393,7 @@ function PMPD(){
 
 
 function Success(count){
+    $(".game_text").css("background-color","transparent")
     let text_box = '<div>{}</div>'
     text_box = text_box.replace('{}',"성공!")
     $(".game_text").html(text_box)
