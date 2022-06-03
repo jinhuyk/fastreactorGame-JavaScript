@@ -198,42 +198,42 @@ function Mcatch(){
     let ranNum = Math.floor(Math.random()*8)
     if(ranNum == 1){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
-        console.log(imglink)
+        
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" }, 600 )
     }
     else if(ranNum == 3){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
-        console.log(imglink)
+        
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" }, 400 )
     }
     else if(ranNum == 4){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
-        console.log(imglink)
+      
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" }, 500 )
     }
     else if(ranNum == 0){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
-        console.log(imglink)
+      
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" },1200 )
     }
     else if(ranNum == 2){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
-        console.log(imglink)
+       
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" }, 800 )
     }
     else if(ranNum == 5){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
-        console.log(imglink)
+       
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" }, 1500 )
@@ -242,7 +242,7 @@ function Mcatch(){
 
     $(document).on("click","#ansbtn",function(){
         if(ranNum == 1 || ranNum==3 || ranNum ==4){
-            console.log("good")
+        
             clearInterval(ongame)
             if(ranNum ==1 ) count=100;
             else if(ranNum == 3) count =300;
@@ -297,7 +297,7 @@ function Alien(){
     $(document).on("click","#ansbtn",function(){
         if(ranNum5==1 || ranNum5==2 || ranNum5==3){
             
-            console.log("good")
+          
             count += 10
             clearInterval(ongame)
             Success(count)
@@ -319,11 +319,10 @@ function CText(count){
     }
     text_box = text_box.replace('{}',colortext[ranNum].text)
     $(".game_text").html(text_box).css("color",colortext[ranNum].color[ranNum2])
-    console.log(count)
+    
     $(document).on("click","#ansbtn",function(){
         if(ranNum == ranNum2){
-            
-            console.log("good")
+         
             clearInterval(ongame)
             Success(count)
         }
@@ -348,7 +347,7 @@ function Matc(){
     $(document).on("click","#ansbtn",function(){
         if(ranNum == ranNum2){
             
-            console.log("good")
+            
             clearInterval(ongame)
             Success(count)
         }
@@ -366,7 +365,6 @@ function PMPD(){
     let ranNum2 = Math.floor(Math.random()*10)
     let ranNum3 =Math.floor(Math.random()*6)
 
-    console.log(ranNum3)
     if(ranNum3 == 4) {
         let rst =ranNum+ranNum2
         text_box = text_box.replace('{}',ranNum + ' + '+ranNum2 +' = '+rst)
@@ -380,7 +378,8 @@ function PMPD(){
     $(document).on("click","#ansbtn",function(){
         if(ranNum3 == 4){
             
-            console.log("good")
+            
+
             clearInterval(ongame)
             Success(count)
         }
