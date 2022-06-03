@@ -184,42 +184,42 @@ function Mcatch(){
     let text_box = '<div class="mcatch">{}</div>'
     let ranNum = Math.floor(Math.random()*8)
     if(ranNum == 1){
-        let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
+        let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" }, 600 )
     }
     else if(ranNum == 3){
-        let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
+        let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" }, 400 )
     }
     else if(ranNum == 4){
-        let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
+        let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" }, 500 )
     }
     else if(ranNum == 0){
-        let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
+        let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" },1200 )
     }
     else if(ranNum == 2){
-        let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
+        let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
         $( ".mcatch" ).animate({ left: "+100%" }, 800 )
     }
     else if(ranNum == 5){
-        let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
+        let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
@@ -255,20 +255,20 @@ function Alien(){
     let ranNum4 = Math.floor(Math.random()*3)
     let ranNum5 = Math.floor(Math.random()*15)
     
-    p1 = p1.replace('{}','<img src="/resources/img/alien/'+ranNum+'.png">')
-    p2 = p2.replace('{}','<img src="/resources/img/alien/'+ranNum2+'.png">')
-    p3 = p3.replace('{}','<img src="/resources/img/alien/'+ranNum3+'.png">')
+    p1 = p1.replace('{}','<img src="/resources/img/alien/'+ranNum+'.png" loading="lazy" >')
+    p2 = p2.replace('{}','<img src="/resources/img/alien/'+ranNum2+'.png" loading="lazy" >')
+    p3 = p3.replace('{}','<img src="/resources/img/alien/'+ranNum3+'.png" loading="lazy" >')
     if(ranNum5 == 1){
         p1 = '<div class="alien"()>{}</div>'
-        p1 = p1.replace('{}','<img src="/resources/img/alien/alien.png">')
+        p1 = p1.replace('{}','<img src="/resources/img/alien/alien.png" loading="lazy" >')
     }
     else if(ranNum5 == 3){
         p2 = '<div class="alien"()>{}</div>'
-        p2 = p2.replace('{}','<img src="/resources/img/alien/alien.png">')
+        p2 = p2.replace('{}','<img src="/resources/img/alien/alien.png" loading="lazy" >')
     }
     else if(ranNum5 == 2){
         p3 = '<div class="alien"()>{}</div>'
-        p3 = p3.replace('{}','<img src="/resources/img/alien/alien.png">')
+        p3 = p3.replace('{}','<img src="/resources/img/alien/alien.png" loading="lazy" >')
     }
     if(ranNum4 == 2){
         p2 = p2.replace('()','style="transform: scaleY(-1);"')
@@ -323,8 +323,8 @@ function Matc(){
     let p2 = '<div class="mf">{}</div>'
     let ranNum = Math.floor(Math.random()*4)
     let ranNum2 = Math.floor(Math.random()*4)
-    p1 = p1.replace('{}','<img src="/resources/img/match/m'+ranNum+'.png">')
-    p2 = p2.replace('{}','<img src="/resources/img/match/f'+ranNum2+'.png">')
+    p1 = p1.replace('{}','<img src="/resources/img/match/m'+ranNum+'.png" loading="lazy" >')
+    p2 = p2.replace('{}','<img src="/resources/img/match/f'+ranNum2+'.png" loading="lazy" >')
     text_box = text_box.replace('{}',p1+p2)
 
     $(".game_text").html(text_box)
