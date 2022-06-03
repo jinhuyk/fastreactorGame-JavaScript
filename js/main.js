@@ -117,7 +117,7 @@ function shareFacebook() {
 function shareKakao() {
  
     // 사용할 앱의 JavaScript 키 설정
-    Kakao.init('45b32650a27b21819ffb3a364bcd084b');
+    Kakao.init('616c65083b3ecbd5a4c9b8c0cb115c10');
    
     // 카카오링크 버튼 생성
     Kakao.Link.createDefaultButton({
