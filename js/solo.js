@@ -20,7 +20,7 @@ function SoloPlay(score, stage,fast){
     faster = fast;
     clearInterval(time);
     clearTimeout(settime)
-    if(stage == 10){
+    if(stage ==10){
         Result(score)
     }
     else{
@@ -93,6 +93,15 @@ function Result(score){
     $(".game_text").css("display","block")
     audio.pause()
     rad.play()
+    
+    let Nnew=0
+    
+    $(".inso").css("display","block").text("BEST SCORE:"+localStorage.getItem("score"))
+    if(score >= localStorage.getItem("score")){
+        localStorage.setItem("score",score)
+        $(".inso").css("color","yellow").text("!NEW SCORE!")
+        
+    }
     $(".sns").css("display","block")
     let sbtn = '<button type="button" class="btn btn-outline-warning " onclick="window.location.reload()">처음으로</button>'
     $(".touch-view").html(sbtn)
@@ -177,7 +186,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             PMPD()
-        },800-faster)
+        },900-faster)
     }
 }
 

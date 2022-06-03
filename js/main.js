@@ -5,6 +5,7 @@ let htdbtn =document.querySelector(".htd-btn")
 function Start(){
     clearInterval(ongame)
     $(".game_text").css("display","none")
+    $(".inso").css("display","none")
     startbtn.style.display = "none"
     htdbtn.style.display = "none"
     audio = document.getElementById("audio_play")
@@ -21,6 +22,7 @@ function Solo(fast){
     On()
     let stage = 0
     let score = 0
+    $(".inso").css("display","block")
     $(".menu-btn").css("display","none")
     $(".info").attr("src","/resources/img/info/info.png").css("display","block")
     
@@ -33,7 +35,7 @@ function Solo(fast){
     if(fast == 0){
         score =50
     }
-    $(".inso").css("display","block")
+    
     $(".score").text(String(score))
     let sbtn = '<div class="btn-group bgm" role="group" aria-label="Basic radio toggle button group"><input type="radio" class="btn-check " onclick="On()" name="btnradio" id="btnradio1" autocomplete="off" checked><label class="btn btn-outline-warning" for="btnradio1">BGM ON</label><input type="radio" onclick="Mute()" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"><label class="btn btn-outline-warning" for="btnradio2">BGM OFF</label></div>'
     sbtn += '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning soloplay-btn" onclick="SoloPlay('+score+',0,'+fast+')">GAME START</button>'
@@ -42,6 +44,7 @@ function Solo(fast){
 
 function HowTo(){
     clearInterval(ongame)
+    $(".inso").css("display","none")
     $(".game_text").css("display","none")
     $(".info").css("display","none")
     $(".score").text("GUIDE")
@@ -126,6 +129,11 @@ function shareKakao() {
 
 
 $(document).ready(()=>{
+    $(".inso").css("color","white")
+    if(!localStorage.getItem("score")){
+        localStorage.setItem("score",0)
+    }
+    $(".inso").css("display","block").text("BEST SCORE:"+localStorage.getItem("score"))
     $(".game_text").css("display","block")
     ongame = setInterval(function(){
         Mainchr()
