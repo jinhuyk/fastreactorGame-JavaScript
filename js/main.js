@@ -8,8 +8,6 @@ function Start(){
     startbtn.style.display = "none"
     htdbtn.style.display = "none"
     audio = document.getElementById("audio_play")
-    audio.play()
-    audio.loop ='loop'
     Menu()
 }
 function Menu(){
@@ -20,6 +18,7 @@ function Menu(){
     $(".touch-view").html(menu_btn)
 }
 function Solo(fast){
+    On()
     let stage = 0
     let score = 0
     $(".menu-btn").css("display","none")
@@ -36,7 +35,8 @@ function Solo(fast){
     }
     $(".inso").css("display","block")
     $(".score").text(String(score))
-    let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning soloplay-btn" onclick="SoloPlay('+score+',0,'+fast+')">Game Start</button>'
+    let sbtn = '<div class="btn-group bgm" role="group" aria-label="Basic radio toggle button group"><input type="radio" class="btn-check " onclick="On()" name="btnradio" id="btnradio1" autocomplete="off" checked><label class="btn btn-outline-warning" for="btnradio1">BGM ON</label><input type="radio" onclick="Mute()" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"><label class="btn btn-outline-warning" for="btnradio2">BGM OFF</label></div>'
+    sbtn += '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning soloplay-btn" onclick="SoloPlay('+score+',0,'+fast+')">GAME START</button>'
     $(".touch-view").html(sbtn)
 }
 
@@ -48,6 +48,7 @@ function HowTo(){
     startbtn.style.display = "none"
     htdbtn.style.display = "none"
     $(".menu-btn").css("display","none")
+    $(".bgm").css("display","none")
     let sbtn = '<button type="button"  style="width: 200px;" class="btn btn-outline-warning info1btn" onclick="info1()">HOW TO PLAY</button>'
      sbtn += '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning info2btn" onclick="info2()">MODE</button>'
      sbtn += '<br><button type="button"style="width: 200px;"  class="btn btn-outline-warning info3btn" onclick="info3()">SCORE</button>'

@@ -11,6 +11,7 @@ audio = document.getElementById("audio_play")
 let befor = 0
 function SoloPlay(score, stage,fast){
     $(".score").text(String(score))
+    $(".bgm").css("display","none")
     $(".soloplay-btn").css("display","none")
     $("#ansbtn").css("display","none")
     $(".game_text").css("display","none").css("color","white")
@@ -19,7 +20,7 @@ function SoloPlay(score, stage,fast){
     faster = fast;
     clearInterval(time);
     clearTimeout(settime)
-    if(stage == 11){
+    if(stage == 10){
         Result(score)
     }
     else{
@@ -300,6 +301,11 @@ function CText(count){
     let text_box = '<div>{}</div>'
     let ranNum = Math.floor(Math.random()*5)
     let ranNum2 = Math.floor(Math.random()*5)
+    if(soloscore >= 90){
+        let stpd = ranNum2+=2
+        if(stpd > 4) stpd -=4;
+        $(".game_text").css("background-color",colortext[ranNum].color[stpd])
+    }
     text_box = text_box.replace('{}',colortext[ranNum].text)
     $(".game_text").html(text_box).css("color",colortext[ranNum].color[ranNum2])
     console.log(count)
