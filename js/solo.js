@@ -311,10 +311,9 @@ function CText(count){
     let text_box = '<div>{}</div>'
     let ranNum = Math.floor(Math.random()*5)
     let ranNum2 = Math.floor(Math.random()*5)
+    let ranNum3 = Math.floor(Math.random()*5)
     if(soloscore >= 90){
-        let stpd = ranNum2++
-        if(stpd > 4) stpd -=4;
-        $(".game_text").css("background-color",colortext[ranNum].color[stpd])
+        $(".game_text").css("background-color",colortext[ranNum].color[ranNum3])
     }
     text_box = text_box.replace('{}',colortext[ranNum].text)
     $(".game_text").html(text_box).css("color",colortext[ranNum].color[ranNum2])
