@@ -392,7 +392,7 @@ function PMPD(){
 
 
 
-function Success(count){
+function Success(){
     $(".game_text").css("background-color","transparent")
     let text_box = '<div>{}</div>'
     text_box = text_box.replace('{}',"성공!")
@@ -404,7 +404,7 @@ function Success(count){
     },2000)
 
 }
-function Fail(count){
+function Fail(){
     let text_box = '<div>{}</div>'
     text_box = text_box.replace('{}',"땡!")
     $(".game_text").html(text_box).css("background-color","transparent")
