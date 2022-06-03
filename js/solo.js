@@ -6,6 +6,9 @@ let ongame
 let time
 let settime
 let faster
+rad = document.getElementById("audio_re")
+audio = document.getElementById("audio_play")
+let befor = 0
 function SoloPlay(score, stage,fast){
     $(".score").text(String(score))
     $(".soloplay-btn").css("display","none")
@@ -20,7 +23,14 @@ function SoloPlay(score, stage,fast){
         Result(score)
     }
     else{
-        let ranNum =Math.floor(Math.random()*5)+1
+        let ranNum = Math.floor(Math.random()*5)+1
+        if(befor == ranNum){
+            ranNum ++
+            if(ranNum >5){
+                ranNum-=5
+            }
+        }
+        befor =ranNum
         $(".info").css("display","block")
         $(".info").attr("src","/resources/img/info/"+ranNum+".png")
         count = 5;
@@ -29,7 +39,7 @@ function SoloPlay(score, stage,fast){
         settime = setTimeout(function(){
             clearTimeout(settime)
             time = setInterval("timer()",1000);
-        },1000)
+        },2000)
 
     }
 }
@@ -41,12 +51,12 @@ function Result(score){
     if(score < 30 ){
         text_box = text_box.replace('{}',"E")
         $('.game_text').css('color','green')
-        p = p.replace('{}','반응속도를 올려봅시다')
+        p = p.replace('{}','아쉽군요.. 반응속도를 올려봅시다')
     }
     else if(score >=30 && score <50){
         text_box = text_box.replace('{}',"D")
         $('.game_text').css('color','green')
-        p = p.replace('{}','반응속도를 올려봅시다')
+        p = p.replace('{}','좀 아쉬운데? 반응속도를 올려봅시다')
     }
     else if(score >=50 && score <75){
         text_box = text_box.replace('{}',"C")
@@ -80,6 +90,9 @@ function Result(score){
     }
     $(".game_text").html(text_box+p)
     $(".game_text").css("display","block")
+    audio.pause()
+    rad.play()
+    $(".sns").css("display","block")
     let sbtn = '<button type="button" class="btn btn-outline-warning " onclick="window.location.reload()">처음으로</button>'
     $(".touch-view").html(sbtn)
 
@@ -123,7 +136,7 @@ function Game(num){
             $(document).off("click")
             count++
             CText(count)
-        },500-faster)
+        },600-faster)
     }
     else if(num == 2){
         let count = 0;
@@ -153,7 +166,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             Matc()
-        },600-faster)
+        },800-faster)
     }
     else if(num == 5){
         let count = 0;
@@ -163,7 +176,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             PMPD()
-        },800-faster)
+        },850-faster)
     }
 }
 
@@ -175,42 +188,42 @@ function Mcatch(){
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
-        $( ".mcatch" ).animate({ left: "+400px" }, 600 )
+        $( ".mcatch" ).animate({ left: "+100%" }, 600 )
     }
     else if(ranNum == 3){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
-        $( ".mcatch" ).animate({ left: "+400px" }, 400 )
+        $( ".mcatch" ).animate({ left: "+100%" }, 400 )
     }
     else if(ranNum == 4){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
-        $( ".mcatch" ).animate({ left: "+400px" }, 500 )
+        $( ".mcatch" ).animate({ left: "+100%" }, 500 )
     }
     else if(ranNum == 0){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
-        $( ".mcatch" ).animate({ left: "+400px" },1200 )
+        $( ".mcatch" ).animate({ left: "+100%" },1200 )
     }
     else if(ranNum == 2){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
-        $( ".mcatch" ).animate({ left: "+400px" }, 800 )
+        $( ".mcatch" ).animate({ left: "+100%" }, 800 )
     }
     else if(ranNum == 5){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png">'
         console.log(imglink)
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
-        $( ".mcatch" ).animate({ left: "+400px" }, 1500 )
+        $( ".mcatch" ).animate({ left: "+100%" }, 1500 )
     }
     
 
@@ -331,12 +344,12 @@ function Matc(){
 }
 
 function PMPD(){
-    let text_box = '<div>{}</div>'
+    let text_box = '<div class="pmpd">{}</div>'
     let ranNum = Math.floor(Math.random()*10)
     let ranNum2 = Math.floor(Math.random()*10)
     let ranNum3 =Math.floor(Math.random()*6)
 
-    
+    console.log(ranNum3)
     if(ranNum3 == 4) {
         let rst =ranNum+ranNum2
         text_box = text_box.replace('{}',ranNum + ' + '+ranNum2 +' = '+rst)

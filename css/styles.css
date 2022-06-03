@@ -44,3 +44,11 @@ html {
     color: white;
     margin-bottom: -15px;
 }
+.pmpd {
+    font-size: 55px;
+}
+.mf {
+    float: left;
+    margin: auto;
+    width: 50%;
+}

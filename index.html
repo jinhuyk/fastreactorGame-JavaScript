@@ -17,10 +17,13 @@
     <div class="body">
         
         <audio id='audio_play' src="/resources/aud/theme.m4a"></audio>
-      <div class="head"><img src="/resources/img/logo/002.png" style="width: 99%; cursor: pointer;" onclick="window.location.reload()"></div>
+        <audio id='audio_re' src="/resources/aud/yeah.mp3"></audio>
+      <div class="head"><img src="/resources/img/logo/002.png" style="width: 400px; cursor: pointer;" onclick="window.location.reload()"></div>
       <div class="menu">
 
-        <button type="button" class="btn btn-outline-warning start-btn" onclick="Start()">시작하기</button>
+        <button type="button" class="btn btn-outline-warning start-btn" onclick="Start()">PLAY</button>
+        <br>
+        <button type="button" class="btn btn-outline-warning htd-btn" onclick="HowTo()">HOW TO PLAY</button>
       </div>
       
       <div class="main">
@@ -30,25 +33,37 @@
           </div>
           <div class="game-view">
             
-            <img class="info" style="display: none; width: 60%; margin: auto; text-align: center;">
+            <img class="info" style="display: none; width: 300px; margin: auto; text-align: center;">
             <div class="timer"></div>
-            <div class="game_text" style="display: none; margin: 20px;"></div>
+            <div class="game_text" style="display: none; padding: 20px; margin: 20px; height: 200px;"></div>
+            <div style="margin: 30px; display: none;" class="sns">
+                <a
+                id="btnTwitter"
+                class="link-icon twitter"
+                href="javascript:shareTwitter();"
+                ><img src="./resources/img/icon-twitter.png"></a
+              >
+              <a
+                id="btnFacebook"
+                class="link-icon facebook"
+                href="javascript:shareFacebook();"
+                ><img src="./resources/img/icon-facebook.png"></a
+              >
+              <a
+                id="btnKakao"
+                class="link-icon kakao"
+                href="javascript:shareKakao();"
+                ><img src="./resources/img/icon-kakao.png"></a
+              >
+              <p style="margin:5px; font-size: small; color:rgb(150, 150, 150)">친구들과 공유하고 즐겨보아요</p>
+              </div>
+        </div>
+          <div class="touch-view" style="margin: 20px;">
+        
           </div>
-          <div class="touch-view">
-
-          </div>
-          <div>
-              <span>
-                <img src="/resources/img/on.png" width="20px" style="cursor:pointer" onclick="On()">
-                <img src="/resources/img/mute.png" width="20px" style="cursor:pointer" onclick="Mute()">
-    
-              </span>
-              <br>
-              
-            </div>
             <div>
                 <br>
-                  <p style="text-align: center; font-size: 2px; color:rgb(150, 150, 150)">모바일에서 즐겨주세요</p>
+                  <p style="text-align: center; font-size: 2px; color:rgb(150, 150, 150)" onclick="Mute()">볼륨을 적당히 줄여주세요(클릭시 무음)</p>
               </div>
       </div>
       <hr>
