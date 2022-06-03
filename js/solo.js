@@ -1,4 +1,4 @@
-let count = 5;
+let count;
 let stageNum;
 let soloscore
 let solostage
@@ -33,12 +33,12 @@ function SoloPlay(score, stage,fast){
         befor =ranNum
         $(".info").css("display","block")
         $(".info").attr("src","/resources/img/info/"+ranNum+".png")
-        count = 5;
+        count = 3;
         stageNum= ranNum
         
         settime = setTimeout(function(){
             clearTimeout(settime)
-            time = setInterval("timer()",1000);
+            time = setInterval("timer()",500);
         },2000)
 
     }
@@ -116,14 +116,14 @@ function Game(num){
     $("#ansbtn").css("display","block")
 
     var ans_btn=""
-    if(faster==0){
+    if(faster>=0){
         var ans_btn = '<button id="ansbtn" class="btn btn-outline-success " style="width :300px; height:100px;" type="button"></button>'
     }
-    if(faster==100){
-        var ans_btn = '<button id="ansbtn" class="btn btn-outline-warning " style="width :300px; height:100px;" type="button"></button>'
+    if(faster>=100){
+        var ans_btn = '<button id="ansbtn" class="btn btn-outline-warning " style="width :200px; height:100px;" type="button"></button>'
     }
-    if(faster==200){
-        var ans_btn = '<button id="ansbtn" class="btn btn-outline-danger " style="width :300px; height:100px;" type="button"></button>'
+    if(faster>=200){
+        var ans_btn = '<button id="ansbtn" class="btn btn-outline-danger " style="width :100px; height:100px;" type="button"></button>'
     }
     $(".touch-view").html(ans_btn)
     
@@ -136,7 +136,7 @@ function Game(num){
             $(document).off("click")
             count++
             CText(count)
-        },600-faster)
+        },700-faster)
     }
     else if(num == 2){
         let count = 0;
@@ -146,7 +146,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             Mcatch()
-        },800-faster)
+        },700-faster)
     }
     else if(num == 3){
         let count = 0;
@@ -156,7 +156,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             Alien()
-        },600-faster)
+        },700-faster)
     }
     else if(num == 4){
         let count = 0;
@@ -176,7 +176,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             PMPD()
-        },850-faster)
+        },800-faster)
     }
 }
 
@@ -383,7 +383,7 @@ function Success(count){
 
     settime =setTimeout(function(){
         clearTimeout(settime)
-        SoloPlay(soloscore+5, solostage+1,faster)
+        SoloPlay(soloscore+5, solostage+1,faster+10)
     },2000)
 
 }
@@ -393,6 +393,6 @@ function Fail(count){
     $(".game_text").html(text_box)
     settime =setTimeout(function(){
         clearTimeout(settime)
-        SoloPlay(soloscore-5, solostage+1,faster)
+        SoloPlay(soloscore-5, solostage+1,faster+10)
     },2000)
 }

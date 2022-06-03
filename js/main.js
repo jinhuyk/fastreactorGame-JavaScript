@@ -3,7 +3,8 @@ let startbtn =document.querySelector(".start-btn")
 let htdbtn =document.querySelector(".htd-btn")
 
 function Start(){
-    
+    clearInterval(ongame)
+    $(".game_text").css("display","none")
     startbtn.style.display = "none"
     htdbtn.style.display = "none"
     audio = document.getElementById("audio_play")
@@ -12,10 +13,11 @@ function Start(){
     Menu()
 }
 function Menu(){
-    var menu_btn = '<button type="button" class="btn btn-outline-warning menu-btn" onclick="Solo(0)">EASY</button>'
+    $(".score").text("SELECT MODE")
+    var menu_btn = '<button type="button"  class="btn btn-outline-warning menu-btn" onclick="Solo(0)">EASY</button>'
     menu_btn += '<button type="button" class="btn btn-outline-warning menu-btn" onclick="Solo(100)">NORMAL</button>'
     menu_btn += '<button type="button" class="btn btn-outline-warning menu-btn" onclick="Solo(200)">HARD</button>'
-    $(".menu").html(menu_btn)
+    $(".touch-view").html(menu_btn)
 }
 function Solo(fast){
     let stage = 0
@@ -34,34 +36,50 @@ function Solo(fast){
     }
     $(".inso").css("display","block")
     $(".score").text(String(score))
-    let sbtn = '<button type="button" class="btn btn-outline-warning soloplay-btn" onclick="SoloPlay('+score+',0,'+fast+')">Game Start</button>'
+    let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning soloplay-btn" onclick="SoloPlay('+score+',0,'+fast+')">Game Start</button>'
     $(".touch-view").html(sbtn)
 }
 
 function HowTo(){
+    clearInterval(ongame)
+    $(".game_text").css("display","none")
+    $(".info").css("display","none")
+    $(".score").text("GUIDE")
     startbtn.style.display = "none"
     htdbtn.style.display = "none"
     $(".menu-btn").css("display","none")
-    $(".info").attr("src","/resources/img/info/info2.png").css("display","block")
-    let sbtn = '<button type="button" class="btn btn-outline-warning info1btn" onclick="info1()">플레이 방법</button>'
-     sbtn += '<button type="button" class="btn btn-outline-warning info2btn" onclick="info2()">난이도</button>'
-     sbtn += '<button type="button" class="btn btn-outline-warning info3btn" onclick="info3()">점수</button>'
-     sbtn += '<button type="button" class="btn btn-outline-warning info4btn" onclick="info4()">개발자들</button>'
+    let sbtn = '<button type="button"  style="width: 200px;" class="btn btn-outline-warning info1btn" onclick="info1()">HOW TO PLAY</button>'
+     sbtn += '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning info2btn" onclick="info2()">MODE</button>'
+     sbtn += '<br><button type="button"style="width: 200px;"  class="btn btn-outline-warning info3btn" onclick="info3()">SCORE</button>'
+     sbtn += '<br><button type="button"style="width: 200px;"  class="btn btn-outline-warning info4btn" onclick="info4()">DEVELOPER</button>'
+     sbtn += '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="window.location.reload()">BACK</button>'
      $(".touch-view").html(sbtn)
 }
 
 function info1(){
+    $(".score").text("HOW TO PLAY")
     $(".info").attr("src","/resources/img/info/info3.png").css("display","block")
+    let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="HowTo()">BACK</button>'
+    $(".touch-view").html(sbtn)
 }
 function info2(){
+    $(".score").text("MODE")
     $(".info").attr("src","/resources/img/info/info4.png").css("display","block")
+    let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="HowTo()">BACK</button>'
+    $(".touch-view").html(sbtn)
 }
 
 function info3(){
+    $(".score").text("SCORE")
     $(".info").attr("src","/resources/img/info/info5.png").css("display","block")
+    let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="HowTo()">BACK</button>'
+    $(".touch-view").html(sbtn)
 }
 function info4(){
+    $(".score").text("DEVELOPER")
     $(".info").attr("src","/resources/img/info/info6.png").css("display","block")
+    let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="HowTo()">BACK</button>'
+    $(".touch-view").html(sbtn)
 }
 
 function Mute(){
@@ -103,4 +121,73 @@ function shareKakao() {
         }
       }
     });
+  }
+
+
+$(document).ready(()=>{
+    $(".game_text").css("display","block")
+    ongame = setInterval(function(){
+        Mainchr()
+    },700)
+})
+
+  function Mainchr(){
+    let text_box = '<div class="mcatch">{}</div>'
+    let ranNum = Math.floor(Math.random()*8)
+    if(ranNum == 1){
+        let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
+    
+        text_box = text_box.replace('{}',imglink)
+        $(".game_text").html(text_box)
+        $( ".mcatch" ).animate({ left: "+100%" }, 600 )
+    }
+    else if(ranNum == 3){
+        let imglink = '<img src="/resources/img/mi.png" loading="lazy" >'
+     
+        text_box = text_box.replace('{}',imglink)
+        $(".game_text").html(text_box)
+        $( ".mcatch" ).animate({ left: "+100%" }, 900 )
+    }
+    else if(ranNum == 4){
+        let imglink = '<img src="/resources/img/pg.png" loading="lazy" >'
+    
+        text_box = text_box.replace('{}',imglink)
+        $(".game_text").html(text_box)
+        $( ".mcatch" ).animate({ left: "+100%" }, 500 )
+    }
+    else if(ranNum == 0){
+        let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
+     
+        text_box = text_box.replace('{}',imglink)
+        $(".game_text").html(text_box)
+        $( ".mcatch" ).animate({ left: "+100%" },1200 )
+    }
+    else if(ranNum == 2){
+        let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
+  
+        text_box = text_box.replace('{}',imglink)
+        $(".game_text").html(text_box)
+        $( ".mcatch" ).animate({ left: "+100%" }, 800 )
+    }
+    else if(ranNum == 5){
+        let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
+ 
+        text_box = text_box.replace('{}',imglink)
+        $(".game_text").html(text_box)
+        $( ".mcatch" ).animate({ left: "+100%" }, 1500 )
+    }
+    else if(ranNum == 6){
+        let imglink = '<img src="/resources/img/alien/0.png" loading="lazy" >'
+
+        text_box = text_box.replace('{}',imglink)
+        $(".game_text").html(text_box)
+        $( ".mcatch" ).animate({ left: "+100%" }, 1500 )
+    }
+    else if(ranNum == 7){
+        let imglink = '<img src="/resources/img/alien/alien.png" loading="lazy" >'
+
+        text_box = text_box.replace('{}',imglink)
+        $(".game_text").html(text_box)
+        $( ".mcatch" ).animate({ left: "+100%" }, 1500 )
+    }
   }

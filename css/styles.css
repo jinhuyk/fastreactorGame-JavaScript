@@ -1,5 +1,6 @@
 .body {
     text-align: center;
+    font-family: "Kanit", sans-serif;
 }
 
 .timer {
@@ -24,8 +25,14 @@
     overflow: hidden;
 
 }
+
+.menu-btn{
+    width: 200px;
+    
+}
 .btn {
     margin: 6px;
+    font-family: 'Kanit', sans-serif;
 }
 
 html {
@@ -51,4 +58,9 @@ html {
     float: left;
     margin: auto;
     width: 50%;
+}
+
+.setting {
+    height: 0;
+    width: 0;
 }
