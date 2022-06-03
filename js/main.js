@@ -145,7 +145,7 @@ $(document).ready(()=>{
     $(".game_text").css("display","block")
     ongame = setInterval(function(){
         Mainchr()
-    },700)
+    },2000)
 })
 
   function Mainchr(){
