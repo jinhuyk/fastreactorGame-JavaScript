@@ -16,6 +16,8 @@ function Menu(){
     var menu_btn = '<button type="button"  class="btn btn-outline-warning menu-btn" onclick="Solo(0)">EASY</button>'
     menu_btn += '<button type="button" class="btn btn-outline-warning menu-btn" onclick="Solo(100)">NORMAL</button>'
     menu_btn += '<button type="button" class="btn btn-outline-warning menu-btn" onclick="Solo(200)">HARD</button>'
+    
+    menu_btn += '<button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="HowTo()">BACK</button>'
     $(".touch-view").html(menu_btn)
 }
 function Solo(fast){
