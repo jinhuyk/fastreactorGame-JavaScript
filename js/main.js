@@ -63,12 +63,14 @@ function HowTo(){
 }
 
 function info1(){
+    $(".info").css("display","none")
     $(".score").text("HOW TO PLAY")
     $(".info").attr("src","/resources/img/info/info3.png").css("display","block")
     let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="HowTo()">BACK</button>'
     $(".touch-view").html(sbtn)
 }
 function info2(){
+    $(".info").css("display","none")
     $(".score").text("MODE")
     $(".info").attr("src","/resources/img/info/info4.png").css("display","block")
     let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="HowTo()">BACK</button>'
@@ -76,12 +78,14 @@ function info2(){
 }
 
 function info3(){
+    $(".info").css("display","none")
     $(".score").text("SCORE")
     $(".info").attr("src","/resources/img/info/info5.png").css("display","block")
     let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="HowTo()">BACK</button>'
     $(".touch-view").html(sbtn)
 }
 function info4(){
+    $(".info").css("display","none")
     $(".score").text("DEVELOPER")
     $(".info").attr("src","/resources/img/info/info6.png").css("display","block")
     let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="HowTo()">BACK</button>'
