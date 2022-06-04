@@ -6,6 +6,7 @@ let ongame
 let time
 let settime
 let faster
+let rlcount = 0
 rad = document.getElementById("audio_re")
 audio = document.getElementById("audio_play")
 let befor = 0
@@ -25,6 +26,17 @@ function SoloPlay(score, stage,fast){
         Result(score)
     }
     else{
+        if(soloscore>=120){
+            faster += 10
+            audio.playbackRate = 1.2;
+        }
+        else if(soloscore>=150){
+            faster += 2
+            audio.playbackRate = 1.5;
+        }
+        else{
+            audio.playbackRate = 1;
+        }
         let ranNum = Math.floor(Math.random()*5)+1
         if(befor == ranNum){
             ranNum ++
@@ -50,42 +62,37 @@ function Result(score){
     let text_box = '<div class="result">{}</div>'
     let p = '<div class="desc">{}</div>'
     $(".info").css("display","none")
-    if(score < 30 ){
-        text_box = text_box.replace('{}',"E")
-        $('.game_text').css('color','green')
-        p = p.replace('{}','아쉽군요.. 반응속도를 올려봅시다')
-    }
-    else if(score >=30 && score <50){
+    if(score <60){
         text_box = text_box.replace('{}',"D")
-        $('.game_text').css('color','green')
+        $('.game_text').css('color','blue')
         p = p.replace('{}','좀 아쉬운데? 반응속도를 올려봅시다')
     }
-    else if(score >=50 && score <75){
+    else if(score >=60 && score <90){
         text_box = text_box.replace('{}',"C")
-        $('.game_text').css('color','orange')
+        $('.game_text').css('color','green')
         p = p.replace('{}','반응속도를 조금만 더!')
     }
-    else if(score >=75 && score <100){
+    else if(score >=90 && score <110){
         text_box = text_box.replace('{}',"B")
         $('.game_text').css('color','orange')
         p = p.replace('{}','반응속도 조금만 더 더!')
     }
-    else if(score >=100 && score <110){
+    else if(score >=110 && score <120){
         text_box = text_box.replace('{}',"A")
         $('.game_text').css('color','red')
         p = p.replace('{}','당신은 정상인입니다')
     }
-    else if(score >=110 && score <130){
+    else if(score >=120 && score <145){
         text_box = text_box.replace('{}',"S")
         $('.game_text').css('color','yellow')
         p = p.replace('{}','반응속도 더 올릴 수 있나요?')
     }
-    else if(score >=130 && score <140){
+    else if(score >=145 && score <170){
         text_box = text_box.replace('{}',"SS")
         $('.game_text').css('color','yellow')
         p = p.replace('{}','이미 당신의 반응속도는 최대입니다')
     }
-    else if(score >=140 && score <=150){
+    else if(score >=170){
         text_box = text_box.replace('{}',"SSS")
         $('.game_text').css('color','yellow')
         p = p.replace('{}','당신은 반응속도의 신입니다.')
@@ -96,8 +103,7 @@ function Result(score){
     rad.volume = 0.1
     rad.play()
     
-    
-    let Nnew=0
+
     
     $(".inso").css("display","block").text("BEST SCORE:"+localStorage.getItem("score"))
     if(score >= localStorage.getItem("score")){
@@ -148,9 +154,10 @@ function Game(num){
         $(".game_text").html(text_box)
         ongame = setInterval(function(){
             $(document).off("click")
+            
             count++
             CText(count)
-        },900-faster)
+        },800-faster)
     }
     else if(num == 2){
         let count = 0;
@@ -180,7 +187,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             Matc()
-        },900-faster)
+        },850-faster)
     }
     else if(num == 5){
         let count = 0;
@@ -190,11 +197,12 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             PMPD()
-        },1000-faster)
+        },900-faster)
     }
 }
 
 function Mcatch(){
+    $(".score").text(String(soloscore))
     let text_box = '<div class="mcatch">{}</div>'
     let ranNum = Math.floor(Math.random()*8)
     if(ranNum == 1){
@@ -256,9 +264,17 @@ function Mcatch(){
             Fail(count)
         }
     })
+    if(ranNum == 1 || ranNum==3 || ranNum ==4){
+        if(rlcount==2){
+            soloscore-=1
+            rlcount=0
+        }
+        rlcount++
+    }
 }
 
 function Alien(){
+    $(".score").text(String(soloscore))
     let text_box = '<div>{}</div>'
     let p1 = '<div class="alien"()>{}</div>'
     let p2 = '<div class="alien"()>{}</div>'
@@ -308,9 +324,17 @@ function Alien(){
             Fail(count)
         }
     })
+    if(ranNum5==1 || ranNum5==2 || ranNum5==3){
+        if(rlcount==2){
+            soloscore-=1
+            rlcount=0
+        }
+        rlcount++
+    }
 }
 
 function CText(count){
+    $(".score").text(String(soloscore))
     let text_box = '<div>{}</div>'
     let ranNum = Math.floor(Math.random()*5)
     let ranNum2 = Math.floor(Math.random()*5)
@@ -332,9 +356,17 @@ function CText(count){
             Fail(count)
         }
     })
+    if(ranNum == ranNum2){
+        if(rlcount==2){
+            soloscore-=1
+            rlcount=0
+        }
+        rlcount++
+    }
 }
 
 function Matc(){
+    $(".score").text(String(soloscore))
     let text_box = '<div>{}</div>'
     let p1 = '<div class="mf">{}</div>'
     let p2 = '<div class="mf">{}</div>'
@@ -357,10 +389,18 @@ function Matc(){
             Fail(count)
         }
     })
+    if(ranNum == ranNum2){
+        if(rlcount==2){
+            soloscore-=1
+            rlcount=0
+        }
+        rlcount++
+    }
 
 }
 
 function PMPD(){
+    $(".score").text(String(soloscore))
     let text_box = '<div class="pmpd">{}</div>'
     let ranNum = Math.floor(Math.random()*10)
     let ranNum2 = Math.floor(Math.random()*10)
@@ -391,6 +431,13 @@ function PMPD(){
             Fail(count)
         }
     })
+    if(ranNum3 == 4){
+        if(rlcount==2){
+            soloscore-=1
+            rlcount=0
+        }
+        rlcount++
+    }
 }
 
 
@@ -403,7 +450,7 @@ function Success(){
     $(".touch-view").css("display","none")
     settime =setTimeout(function(){
         clearTimeout(settime)
-        SoloPlay(soloscore+5, solostage+1,faster+10)
+        SoloPlay(soloscore+10, solostage+1,faster+10)
     },2000)
 
 }

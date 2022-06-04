@@ -1,7 +1,7 @@
 
 let startbtn =document.querySelector(".start-btn")
 let htdbtn =document.querySelector(".htd-btn")
-
+let udtbtn =document.querySelector(".udt-btn")
 function Start(){
     clearInterval(ongame)
     $(".text-dobal").css("display","none")
@@ -9,6 +9,7 @@ function Start(){
     $(".inso").css("display","none")
     startbtn.style.display = "none"
     htdbtn.style.display = "none"
+    udtbtn.style.display = "none"
     audio = document.getElementById("audio_play")
     Menu()
 }
@@ -45,6 +46,25 @@ function Solo(fast){
     $(".touch-view").html(sbtn)
 }
 
+function Udt(){
+    clearInterval(ongame)
+    $(".text-dobal").css("display","none")
+    $(".inso").css("display","none")
+    $(".game_text").css("display","none")
+    $(".info").css("display","none")
+    $(".score").text("UPDATE")
+    startbtn.style.display = "none"
+    htdbtn.style.display = "none"
+    udtbtn.style.display = "none"
+    $(".menu-btn").css("display","none")
+    $(".bgm").css("display","none")
+    $(".info").attr("src","/resources/img/info/update.png").css("display","block")
+     let sbtn = '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="window.location.reload()">BACK</button>'
+     $(".touch-view").html(sbtn)
+}
+
+
+
 function HowTo(){
     clearInterval(ongame)
     $(".text-dobal").css("display","none")
@@ -54,6 +74,7 @@ function HowTo(){
     $(".score").text("GUIDE")
     startbtn.style.display = "none"
     htdbtn.style.display = "none"
+    udtbtn.style.display = "none"
     $(".menu-btn").css("display","none")
     $(".bgm").css("display","none")
     let sbtn = '<button type="button"  style="width: 200px;" class="btn btn-outline-warning info1btn" onclick="info1()">HOW TO PLAY</button>'
