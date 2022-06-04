@@ -27,7 +27,7 @@ function SoloPlay(score, stage,fast){
     }
     else{
         if(soloscore>=100){
-            faster += 8
+            faster += 10
             audio.playbackRate = 1.2;
         }
         else if(soloscore>=120){
@@ -35,14 +35,26 @@ function SoloPlay(score, stage,fast){
             audio.playbackRate = 1.5;
         }
         else{
-            faster -=1
+            faster -=2
             audio.playbackRate = 1;
         }
-        let ranNum = Math.floor(Math.random()*5)+1
-        if(befor == ranNum){
-            ranNum ++
-            if(ranNum >5){
-                ranNum-=5
+        let ranNum
+        if(soloscore>=100){
+            ranNum = Math.floor(Math.random()*6)+1
+            if(befor == ranNum){
+                ranNum ++
+                if(ranNum >5){
+                    ranNum-=6
+                }
+            }
+        }
+        else{
+            ranNum = Math.floor(Math.random()*5)+1
+            if(befor == ranNum){
+                ranNum ++
+                if(ranNum >5){
+                    ranNum-=5
+                }
             }
         }
         befor =ranNum
@@ -201,6 +213,16 @@ function Game(num){
             PMPD()
         },850-faster)
     }
+    else if(num == 6){
+        let count = 0;
+        let text_box = '<div>{}</div>'
+        text_box = text_box.replace('{}',"시작~!")
+        $(".game_text").html(text_box)
+        ongame = setInterval(function(){
+            $(document).off("click")
+            ColM()
+        },600-faster)
+    }
 }
 
 function Mcatch(){
@@ -334,6 +356,39 @@ function Alien(){
         rlcount++
     }
 }
+
+function ColM(){
+    $(".score").text(String(soloscore))
+    let text_box = '<div>{}</div>'
+    let ranNum = Math.floor(Math.random()*5)
+    if(ranNum==3){
+        $(".game_text").css("background-color","green")
+    }
+    else{
+        $(".game_text").css("background-color","red")
+    }
+
+    $(document).on("click","#ansbtn",function(){
+        if(ranNum == 3){
+         
+            clearInterval(ongame)
+            Success(count)
+        }
+        else{
+            clearInterval(ongame)
+            Fail(count)
+        }
+    })
+    if(ranNum == 3){
+        if(rlcount==2){
+            soloscore-=1
+            rlcount=0
+        }
+        rlcount++
+    }
+}
+
+
 
 function CText(count){
     $(".score").text(String(soloscore))
