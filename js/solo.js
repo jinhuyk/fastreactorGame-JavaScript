@@ -138,8 +138,9 @@ function Game(num){
     if(faster>=200){
         var ans_btn = '<button id="ansbtn" class="btn btn-outline-danger " style="width :100px; height:100px;" type="button"></button>'
     }
-    $(".touch-view").html(ans_btn)
     
+    $(".touch-view").html(ans_btn)
+    $(".touch-view").css("display","block")
     if(num == 1){
         let count = 0;
         let text_box = '<div>{}</div>'
@@ -363,7 +364,7 @@ function PMPD(){
     let text_box = '<div class="pmpd">{}</div>'
     let ranNum = Math.floor(Math.random()*10)
     let ranNum2 = Math.floor(Math.random()*10)
-    let ranNum3 =Math.floor(Math.random()*6)
+    let ranNum3 =Math.floor(Math.random()*6)+1
 
     if(ranNum3 == 4) {
         let rst =ranNum+ranNum2
@@ -379,11 +380,13 @@ function PMPD(){
         if(ranNum3 == 4){
             
             
-
+            $(document).off("click")
             clearInterval(ongame)
             Success(count)
+            
         }
         else{
+            $(document).off("click")
             clearInterval(ongame)
             Fail(count)
         }
@@ -397,7 +400,7 @@ function Success(){
     let text_box = '<div>{}</div>'
     text_box = text_box.replace('{}',"성공!")
     $(".game_text").html(text_box).css("background-color","transparent")
-
+    $(".touch-view").css("display","none")
     settime =setTimeout(function(){
         clearTimeout(settime)
         SoloPlay(soloscore+5, solostage+1,faster+10)
@@ -407,6 +410,7 @@ function Success(){
 function Fail(){
     let text_box = '<div>{}</div>'
     text_box = text_box.replace('{}',"땡!")
+    $(".touch-view").css("display","none")
     $(".game_text").html(text_box).css("background-color","transparent")
     settime =setTimeout(function(){
         clearTimeout(settime)
