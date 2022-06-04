@@ -150,7 +150,7 @@ function Game(num){
             $(document).off("click")
             count++
             CText(count)
-        },700-faster)
+        },900-faster)
     }
     else if(num == 2){
         let count = 0;
@@ -160,7 +160,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             Mcatch()
-        },700-faster)
+        },800-faster)
     }
     else if(num == 3){
         let count = 0;
@@ -170,7 +170,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             Alien()
-        },700-faster)
+        },800-faster)
     }
     else if(num == 4){
         let count = 0;
@@ -180,7 +180,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             Matc()
-        },800-faster)
+        },900-faster)
     }
     else if(num == 5){
         let count = 0;
