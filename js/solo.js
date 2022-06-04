@@ -462,14 +462,31 @@ function PMPD(){
     let ranNum = Math.floor(Math.random()*10)
     let ranNum2 = Math.floor(Math.random()*10)
     let ranNum3 =Math.floor(Math.random()*6)+1
-
+    let ranNum4 = Math.floor(Math.random()*3)+1
     if(ranNum3 == 4) {
-        let rst =ranNum+ranNum2
-        text_box = text_box.replace('{}',ranNum + ' + '+ranNum2 +' = '+rst)
+        if(soloscore>=110){
+            if(ranNum4 == 2){
+                let rst =ranNum-ranNum2
+                text_box = text_box.replace('{}',ranNum + ' - '+ranNum2 +' = '+rst)
+            }
+            else{
+                let rst =ranNum+ranNum2
+                text_box = text_box.replace('{}',ranNum + ' + '+ranNum2 +' = '+rst)
+            }
+        }
     }
     else{
-        let rst =ranNum+ranNum2+ranNum3
-        text_box = text_box.replace('{}',ranNum + ' + '+ranNum2 +' = '+rst)
+        if(soloscore>=110){
+            if(ranNum4 == 2){
+                let rst =ranNum-ranNum2+ranNum3
+                text_box = text_box.replace('{}',ranNum + ' - '+ranNum2 +' = '+rst)
+            }
+            else{
+                let rst =ranNum+ranNum2+ranNum3
+                text_box = text_box.replace('{}',ranNum + ' + '+ranNum2 +' = '+rst)
+            }
+        }
+        
     }
        
     $(".game_text").html(text_box)
