@@ -49,7 +49,7 @@ function SoloPlay(score, stage,fast){
 function Result(score){
     let text_box = '<div class="result">{}</div>'
     let p = '<div class="desc">{}</div>'
-    
+    $(".info").css("display","none")
     if(score < 30 ){
         text_box = text_box.replace('{}',"E")
         $('.game_text').css('color','green')
