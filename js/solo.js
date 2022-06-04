@@ -27,7 +27,7 @@ function SoloPlay(score, stage,fast){
     }
     else{
         if(soloscore>=100){
-            faster += 10
+            faster += 8
             audio.playbackRate = 1.2;
         }
         else if(soloscore>=120){
@@ -35,6 +35,7 @@ function SoloPlay(score, stage,fast){
             audio.playbackRate = 1.5;
         }
         else{
+            faster -=1
             audio.playbackRate = 1;
         }
         let ranNum = Math.floor(Math.random()*5)+1
