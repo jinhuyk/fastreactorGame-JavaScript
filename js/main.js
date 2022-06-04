@@ -182,13 +182,18 @@ $(document).ready(()=>{
     
 
 
-
     $(".inso").css("display","block").text("BEST SCORE:"+localStorage.getItem("score"))
     $(".game_text").css("display","block")
     ongame = setInterval(function(){
         Mainchr()
     },2000)
 })
+
+window.onload = function(){
+  
+    $(".touch-view").css("display","block")
+}
+
 
   function Mainchr(){
     let text_box = '<div class="mcatch">{}</div>'
