@@ -40,11 +40,11 @@ function SoloPlay(score, stage,fast){
         }
         let ranNum
         if(soloscore>=100){
-            ranNum = 7//Math.floor(Math.random()*6)+1
+            ranNum = Math.floor(Math.random()*6)+1
             if(befor == ranNum){
                 ranNum ++
-                if(ranNum >7){
-                    ranNum-=7
+                if(ranNum >6){
+                    ranNum-=6
                 }
             }
         }
@@ -359,6 +359,7 @@ function Alien(){
 
 function ColM(){
     $(".score").text(String(soloscore))
+    $(".game_text").html("")
     let text_box = '<div>{}</div>'
     let ranNum = Math.floor(Math.random()*5)
     if(ranNum==3){
@@ -475,6 +476,10 @@ function PMPD(){
                 text_box = text_box.replace('{}',ranNum + ' + '+ranNum2 +' = '+rst)
             }
         }
+        else{
+            let rst =ranNum+ranNum2
+            text_box = text_box.replace('{}',ranNum + ' + '+ranNum2 +' = '+rst)
+        }
     }
     else{
         if(soloscore>=110){
@@ -486,6 +491,10 @@ function PMPD(){
                 let rst =ranNum+ranNum2+ranNum3
                 text_box = text_box.replace('{}',ranNum + ' + '+ranNum2 +' = '+rst)
             }
+        }
+        else{
+            let rst =ranNum+ranNum2+ranNum3
+            text_box = text_box.replace('{}',ranNum + ' + '+ranNum2 +' = '+rst)
         }
         
     }
