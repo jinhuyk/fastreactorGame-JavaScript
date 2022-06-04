@@ -26,11 +26,11 @@ function SoloPlay(score, stage,fast){
         Result(score)
     }
     else{
-        if(soloscore>=120){
+        if(soloscore>=100){
             faster += 10
             audio.playbackRate = 1.2;
         }
-        else if(soloscore>=150){
+        else if(soloscore>=120){
             faster += 2
             audio.playbackRate = 1.5;
         }
@@ -197,7 +197,7 @@ function Game(num){
         ongame = setInterval(function(){
             $(document).off("click")
             PMPD()
-        },900-faster)
+        },850-faster)
     }
 }
 
