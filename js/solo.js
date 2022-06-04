@@ -40,11 +40,11 @@ function SoloPlay(score, stage,fast){
         }
         let ranNum
         if(soloscore>=100){
-            ranNum = Math.floor(Math.random()*6)+1
+            ranNum = 7//Math.floor(Math.random()*6)+1
             if(befor == ranNum){
                 ranNum ++
-                if(ranNum >5){
-                    ranNum-=6
+                if(ranNum >7){
+                    ranNum-=7
                 }
             }
         }
@@ -455,6 +455,7 @@ function Matc(){
     }
 
 }
+
 
 function PMPD(){
     $(".score").text(String(soloscore))
