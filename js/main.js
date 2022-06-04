@@ -4,6 +4,7 @@ let htdbtn =document.querySelector(".htd-btn")
 
 function Start(){
     clearInterval(ongame)
+    $(".text-dobal").css("display","none")
     $(".game_text").css("display","none")
     $(".inso").css("display","none")
     startbtn.style.display = "none"
@@ -46,6 +47,7 @@ function Solo(fast){
 
 function HowTo(){
     clearInterval(ongame)
+    $(".text-dobal").css("display","none")
     $(".inso").css("display","none")
     $(".game_text").css("display","none")
     $(".info").css("display","none")
@@ -141,6 +143,25 @@ $(document).ready(()=>{
     if(!localStorage.getItem("score")){
         localStorage.setItem("score",0)
     }
+    let ranNum = Math.floor(Math.random()*5)
+
+    $(".text-dobal").css("display","block")
+    if(ranNum ==0){
+        $(".text-dobal").text("친구들과 내기를 한 후 밥을 얻어먹어봐요")
+    }
+    else if(ranNum ==1){
+        $(".text-dobal").text("머리와 손은 생각보다 멀리 떨어져 있습니다")
+    }
+    else if(ranNum ==2){
+        $(".text-dobal").text("얼룩말은 지푸라기를 먹어요?")
+    }
+    else if(ranNum ==3){
+        $(".text-dobal").text("플레이 스토어에서도 출시할겁니다")
+    }
+    
+
+
+
     $(".inso").css("display","block").text("BEST SCORE:"+localStorage.getItem("score"))
     $(".game_text").css("display","block")
     ongame = setInterval(function(){
@@ -208,3 +229,7 @@ $(document).ready(()=>{
         $( ".mcatch" ).animate({ left: "+100%" }, 1500 )
     }
   }
+
+
+
+  
