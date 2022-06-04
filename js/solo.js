@@ -112,6 +112,7 @@ function Result(score){
         
     }
     $(".sns").css("display","block")
+    $(".touch-view").css("display","block")
     let sbtn = '<button type="button" class="btn btn-outline-warning " onclick="window.location.reload()">처음으로</button>'
     $(".touch-view").html(sbtn)
 
