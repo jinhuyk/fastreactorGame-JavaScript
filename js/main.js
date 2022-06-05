@@ -3,6 +3,9 @@ let startbtn =document.querySelector(".start-btn")
 let htdbtn =document.querySelector(".htd-btn")
 
 let stbtn =document.querySelector(".st-btn")
+
+
+let lang = localStorage.getItem('lang');
 function Start(){
     clearInterval(ongame)
     $(".text-dobal").css("display","none")
@@ -30,7 +33,14 @@ function Solo(fast){
     let score = 0
     $(".inso").css("display","block")
     $(".menu-btn").css("display","none")
-    $(".info").attr("src","/resources/img/info/info.png").css("display","block")
+
+    if(lang==1){
+        $(".info").attr("src","/resources/img/info/einfo.png").css("display","block")
+    }
+    else{
+        $(".info").attr("src","/resources/img/info/info.png").css("display","block")
+    }
+
     
     if(fast == 200) {
         score = 100
@@ -48,7 +58,24 @@ function Solo(fast){
     $(".touch-view").html(sbtn)
 }
 
-
+function Lang(){
+    clearInterval(ongame)
+    $(".text-dobal").css("display","none")
+    $(".inso").css("display","none")
+    $(".game_text").css("display","none")
+    $(".info").css("display","none")
+    $(".score").text("LANGUAGE")
+    startbtn.style.display = "none"
+    htdbtn.style.display = "none"
+  
+    stbtn.style.display = "none"
+    $(".menu-btn").css("display","none")
+    $(".bgm").css("display","none")
+     let sbtn = '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning kobtn" onclick="Ko()">KOREAN</button>'
+     sbtn += '<br><button type="button"style="width: 200px;"  class="btn btn-outline-warning enbtn" onclick="En()">ENGLISH</button>'
+     sbtn += '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="window.location.reload()">BACK</button>'
+     $(".touch-view").html(sbtn)
+}
 
 function Setting(){
     clearInterval(ongame)
@@ -64,11 +91,25 @@ function Setting(){
     $(".menu-btn").css("display","none")
     $(".bgm").css("display","none")
     let sbtn = '<button type="button"  style="width: 200px;" class="btn btn-outline-warning rstbtn" onclick="rest()">RESET SCORE</button>'
-     sbtn += '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="window.location.reload()">BACK</button>'
+    sbtn += '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning labtn" onclick="Lang()">LANGUAGE</button>'
+    sbtn += '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="window.location.reload()">BACK</button>'
      $(".touch-view").html(sbtn)
 }
+
+function Ko(){
+    localStorage.setItem('lang',0)
+    window.location.reload()
+}
+function En(){
+    localStorage.setItem('lang',1)
+    window.location.reload()
+}
+
+
+
 function rest(){
         window.localStorage.setItem('score',0)
+        window.location.reload()
 }
 
 function HowTo(){
@@ -102,7 +143,12 @@ function info1(){
 function info2(){
     $(".info").css("display","none")
     $(".score").text("MODE")
-    $(".info").attr("src","/resources/img/info/info4.png").css("display","block")
+    if(lang==1){
+        $(".info").attr("src","/resources/img/info/einfo4.png").css("display","block")
+    }
+    else{
+        $(".info").attr("src","/resources/img/info/info4.png").css("display","block")
+    }
     let sbtn = '<button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="HowTo()">BACK</button>'
     $(".touch-view").html(sbtn)
 }
@@ -171,7 +217,9 @@ $(document).ready(()=>{
     if(!localStorage.getItem("score")){
         localStorage.setItem("score",0)
     }
-
+    if(!localStorage.getItem('lang')){
+        localStorage.setItem('lang',0)
+    }
 
     
     
@@ -180,7 +228,10 @@ $(document).ready(()=>{
     $(".inso").css("display","block").text("BEST SCORE:"+localStorage.getItem("score"))
     $(".game_text").css("display","block")
     ongame = setInterval(function(){
-        let ranNum = Math.floor(Math.random()*10)
+        let ranNum = Math.floor(Math.random()*5)
+        if(lang==1){
+            ranNum += 5
+        }
         $(".text-dobal").css("display","block")
         if(ranNum ==0){
             $(".text-dobal").text("친구들과 내기를 한 후 밥을 얻어먹어봐요")
@@ -198,16 +249,19 @@ $(document).ready(()=>{
             $(".text-dobal").text("SSS 달성 가능?")
         }
         else if(ranNum ==5){
-            $(".text-dobal").text("야호~!")
+            $(".text-dobal").text("Head and Hand are not closed")
         }
         else if(ranNum ==6){
-            $(".text-dobal").text("만화캐릭터 테스트도 있는데..")
+            $(".text-dobal").text("fight with Friend in this game")
         }
         else if(ranNum ==7){
-            $(".text-dobal").text("개발자도 SSS 못찍었는데")
+            $(".text-dobal").text("New game Green Light")
         }
         else if(ranNum ==8){
-            $(".text-dobal").text("리뷰와 별점 달아주세요~")
+            $(".text-dobal").text("can you go SSS?")
+        }
+        else if(ranNum ==9){
+            $(".text-dobal").text("Change your Language")
         }
         Mainchr()
     },2000)

@@ -58,7 +58,13 @@ function SoloPlay(score, stage,fast){
         }
         befor =ranNum
         $(".info").css("display","block")
-        $(".info").attr("src","/resources/img/info/"+ranNum+".png")
+        if(lang == 1){
+            $(".info").attr("src","/resources/img/info/e"+ranNum+".png")
+        }
+        else{
+            $(".info").attr("src","/resources/img/info/"+ranNum+".png")
+        }
+
         count = 3;
         stageNum= ranNum
         
@@ -77,37 +83,79 @@ function Result(score){
     if(score <60){
         text_box = text_box.replace('{}',"D")
         $('.game_text').css('color','blue')
-        p = p.replace('{}','좀 아쉬운데? 반응속도를 올려봅시다')
+        
+        if(lang == 1){
+            p = p.replace('{}',"Interesting...")
+        }
+        else{
+            p = p.replace('{}','좀 아쉬운데? 반응속도를 올려봅시다')
+        }
     }
     else if(score >=60 && score <90){
         text_box = text_box.replace('{}',"C")
         $('.game_text').css('color','green')
-        p = p.replace('{}','반응속도를 조금만 더!')
+        if(lang == 1){
+            p = p.replace('{}','Need some improvement...')
+        }
+        else{
+            p = p.replace('{}','반응속도를 조금만 더!')
+        }
+
     }
     else if(score >=90 && score <110){
         text_box = text_box.replace('{}',"B")
         $('.game_text').css('color','orange')
-        p = p.replace('{}','반응속도 조금만 더 더!')
+        if(lang == 1){
+            p = p.replace('{}','Maybe a bit faster?')
+        }
+        else{
+            p = p.replace('{}','반응속도 조금만 더 더!')
+        }
+
     }
     else if(score >=110 && score <120){
         text_box = text_box.replace('{}',"A")
         $('.game_text').css('color','red')
-        p = p.replace('{}','당신은 정상인입니다')
+        if(lang == 1){
+            p = p.replace('{}',"You're average.")
+        }
+        else{
+            p = p.replace('{}','당신은 정상인입니다')
+        }
+
     }
     else if(score >=120 && score <145){
         text_box = text_box.replace('{}',"S")
         $('.game_text').css('color','yellow')
-        p = p.replace('{}','반응속도 더 올릴 수 있나요?')
+        if(lang == 1){
+            p = p.replace('{}','Almost there...!')
+        }
+        else{
+            p = p.replace('{}','반응속도 더 올릴 수 있나요?')
+        }
+
     }
     else if(score >=145 && score <170){
         text_box = text_box.replace('{}',"SS")
         $('.game_text').css('color','yellow')
-        p = p.replace('{}','이미 당신의 반응속도는 최대입니다')
+        if(lang == 1){
+            p = p.replace('{}','Already top level')
+        }
+        else{
+            p = p.replace('{}','이미 당신의 반응속도는 최대입니다')
+        }
+
     }
     else if(score >=170){
         text_box = text_box.replace('{}',"SSS")
         $('.game_text').css('color','yellow')
-        p = p.replace('{}','당신은 반응속도의 신입니다.')
+        if(lang == 1){
+            p = p.replace('{}','God...?')
+        }
+        else{
+            p = p.replace('{}','당신은 반응속도의 신입니다.')
+        }
+
     }
     $(".game_text").html(text_box+p)
     $(".game_text").css("display","block")
@@ -125,7 +173,7 @@ function Result(score){
     }
     $(".sns").css("display","block")
     $(".touch-view").css("display","block")
-    let sbtn = '<button type="button" class="btn btn-outline-warning " onclick="window.location.reload()">처음으로</button>'
+    let sbtn = '<button type="button" class="btn btn-outline-warning " onclick="window.location.reload()">MAIN</button>'
     $(".touch-view").html(sbtn)
 
 }
@@ -163,7 +211,14 @@ function Game(num){
     if(num == 1){
         let count = 0;
         let text_box = '<div>{}</div>'
-        text_box = text_box.replace('{}',"시작~!")
+        
+        
+        if(lang == 1){
+            text_box = text_box.replace('{}',"GO!")
+        }
+        else{
+            text_box = text_box.replace('{}',"시작~!")
+        }
         $(".game_text").html(text_box)
         ongame = setInterval(function(){
             $(document).off("click")
@@ -175,7 +230,12 @@ function Game(num){
     else if(num == 2){
         let count = 0;
         let text_box = '<div>{}</div>'
-        text_box = text_box.replace('{}',"시작~!")
+        if(lang == 1){
+            text_box = text_box.replace('{}',"GO!")
+        }
+        else{
+            text_box = text_box.replace('{}',"시작~!")
+        }
         $(".game_text").html(text_box)
         ongame = setInterval(function(){
             $(document).off("click")
@@ -185,7 +245,12 @@ function Game(num){
     else if(num == 3){
         let count = 0;
         let text_box = '<div>{}</div>'
-        text_box = text_box.replace('{}',"시작~!")
+        if(lang == 1){
+            text_box = text_box.replace('{}',"GO!")
+        }
+        else{
+            text_box = text_box.replace('{}',"시작~!")
+        }
         $(".game_text").html(text_box)
         ongame = setInterval(function(){
             $(document).off("click")
@@ -195,7 +260,12 @@ function Game(num){
     else if(num == 4){
         let count = 0;
         let text_box = '<div>{}</div>'
-        text_box = text_box.replace('{}',"시작~!")
+        if(lang == 1){
+            text_box = text_box.replace('{}',"GO!")
+        }
+        else{
+            text_box = text_box.replace('{}',"시작~!")
+        }
         $(".game_text").html(text_box)
         ongame = setInterval(function(){
             $(document).off("click")
@@ -205,7 +275,12 @@ function Game(num){
     else if(num == 5){
         let count = 0;
         let text_box = '<div>{}</div>'
-        text_box = text_box.replace('{}',"시작~!")
+        if(lang == 1){
+            text_box = text_box.replace('{}',"GO!")
+        }
+        else{
+            text_box = text_box.replace('{}',"시작~!")
+        }
         $(".game_text").html(text_box)
         ongame = setInterval(function(){
             $(document).off("click")
@@ -215,7 +290,12 @@ function Game(num){
     else if(num == 6){
         let count = 0;
         let text_box = '<div>{}</div>'
-        text_box = text_box.replace('{}',"시작~!")
+        if(lang == 1){
+            text_box = text_box.replace('{}',"GO!")
+        }
+        else{
+            text_box = text_box.replace('{}',"시작~!")
+        }
         $(".game_text").html(text_box)
         ongame = setInterval(function(){
             $(document).off("click")
@@ -399,7 +479,12 @@ function CText(count){
     if(soloscore >= 90){
         $(".game_text").css("background-color",colortext[ranNum].color[ranNum3])
     }
-    text_box = text_box.replace('{}',colortext[ranNum].text)
+    if(lang ==1 ){
+        text_box = text_box.replace('{}',colortexteng[ranNum].text)
+    }
+    else{
+        text_box = text_box.replace('{}',colortext[ranNum].text)
+    }
     $(".game_text").html(text_box).css("color",colortext[ranNum].color[ranNum2])
     
     $(document).on("click","#ansbtn",function(){
@@ -528,7 +613,13 @@ function PMPD(){
 function Success(){
     $(".game_text").css("background-color","transparent")
     let text_box = '<div>{}</div>'
-    text_box = text_box.replace('{}',"성공!")
+    if(lang==1){
+        text_box = text_box.replace('{}',"GOOD :)")
+    }
+    else{
+        text_box = text_box.replace('{}',"성공!")
+    }
+
     $(".game_text").html(text_box).css("background-color","transparent")
     $(".touch-view").css("display","none")
     settime =setTimeout(function(){
@@ -539,7 +630,13 @@ function Success(){
 }
 function Fail(){
     let text_box = '<div>{}</div>'
-    text_box = text_box.replace('{}',"땡!")
+    if(lang==1){
+        text_box = text_box.replace('{}',"BAD :(")
+    }
+    else{
+        text_box = text_box.replace('{}',"땡!")
+    }
+
     $(".touch-view").css("display","none")
     $(".game_text").html(text_box).css("background-color","transparent")
     settime =setTimeout(function(){

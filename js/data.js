@@ -21,6 +21,30 @@ let colortext = [
     }
 ]
 
+let colortexteng = [
+    {
+        text:"RED",
+        color: ["red","yellow","blue","green","purple"]
+    },
+    {
+        text:"YELLOW",
+        color: ["red","yellow","blue","green","purple"]
+    },
+    {
+        text:"BLUE",
+        color: ["red","yellow","blue","green","purple"]
+    },
+    {
+        text:"GREEN",
+        color: ["red","yellow","blue","green","purple"]
+    },
+    {
+        text:"PURPLE",
+        color: ["red","yellow","blue","green","purple"]
+    }
+]
+
+
 let feed =[
     {
         anm:"tiger",
