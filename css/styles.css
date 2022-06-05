@@ -1,6 +1,7 @@
 .body {
     text-align: center;
     font-family: "Kanit", sans-serif;
+    margin-bottom: 9%;
 }
 
 .timer {
@@ -65,3 +66,15 @@ html {
     width: 0;
 }
 
+footer{
+    height: 80px;
+  position : relative;
+  transform : translateY(-100%);
+
+}
+
+#wrapper{
+    height: auto;
+    min-height: 100%;
+    padding-bottom:80px;
+}
