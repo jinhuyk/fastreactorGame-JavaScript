@@ -35,11 +35,10 @@ function SoloPlay(score, stage,fast){
             audio.playbackRate = 1.5;
         }
         else{
-            faster -=2
             audio.playbackRate = 1;
         }
         let ranNum
-        if(soloscore>=100){
+        if(soloscore>=90){
             ranNum = Math.floor(Math.random()*6)+1
             if(befor == ranNum){
                 ranNum ++
@@ -463,9 +462,9 @@ function PMPD(){
     let text_box = '<div class="pmpd">{}</div>'
     let ranNum = Math.floor(Math.random()*10)
     let ranNum2 = Math.floor(Math.random()*10)
-    let ranNum3 =Math.floor(Math.random()*6)+1
+    let ranNum3 =Math.floor(Math.random()*4)+1
     let ranNum4 = Math.floor(Math.random()*3)+1
-    if(ranNum3 == 4) {
+    if(ranNum3 == 2) {
         if(soloscore>=110){
             if(ranNum4 == 2){
                 let rst =ranNum-ranNum2

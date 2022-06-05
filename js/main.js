@@ -1,7 +1,8 @@
 
 let startbtn =document.querySelector(".start-btn")
 let htdbtn =document.querySelector(".htd-btn")
-let udtbtn =document.querySelector(".udt-btn")
+
+let stbtn =document.querySelector(".st-btn")
 function Start(){
     clearInterval(ongame)
     $(".text-dobal").css("display","none")
@@ -9,7 +10,8 @@ function Start(){
     $(".inso").css("display","none")
     startbtn.style.display = "none"
     htdbtn.style.display = "none"
-    udtbtn.style.display = "none"
+    stbtn.style.display = "none"
+   
     audio = document.getElementById("audio_play")
     Menu()
 }
@@ -46,24 +48,31 @@ function Solo(fast){
     $(".touch-view").html(sbtn)
 }
 
-function Udt(){
+
+
+function Setting(){
     clearInterval(ongame)
     $(".text-dobal").css("display","none")
     $(".inso").css("display","none")
     $(".game_text").css("display","none")
     $(".info").css("display","none")
-    $(".score").text("UPDATE")
+    $(".score").text("SETTING")
     startbtn.style.display = "none"
     htdbtn.style.display = "none"
-    udtbtn.style.display = "none"
+  
+    stbtn.style.display = "none"
     $(".menu-btn").css("display","none")
     $(".bgm").css("display","none")
-    $(".info").attr("src","/resources/img/info/update.png").css("display","block")
-     let sbtn = '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="window.location.reload()">BACK</button>'
+    let sbtn = '<button type="button"  style="width: 200px;" class="btn btn-outline-warning rstbtn" onclick="rest()">RESET SCORE</button>'
+     sbtn += '<br><button type="button" style="width: 200px;" class="btn btn-outline-warning " onclick="window.location.reload()">BACK</button>'
      $(".touch-view").html(sbtn)
 }
-
-
+function rest(){
+    let conf = confirm("정말로 점수를 초기화하시겠습니까")
+    if(conf){
+        window.localStorage.setItem('score',0)
+    }
+}
 
 function HowTo(){
     clearInterval(ongame)
@@ -73,8 +82,9 @@ function HowTo(){
     $(".info").css("display","none")
     $(".score").text("GUIDE")
     startbtn.style.display = "none"
+    stbtn.style.display = "none"
     htdbtn.style.display = "none"
-    udtbtn.style.display = "none"
+ 
     $(".menu-btn").css("display","none")
     $(".bgm").css("display","none")
     let sbtn = '<button type="button"  style="width: 200px;" class="btn btn-outline-warning info1btn" onclick="info1()">HOW TO PLAY</button>'
@@ -164,27 +174,44 @@ $(document).ready(()=>{
     if(!localStorage.getItem("score")){
         localStorage.setItem("score",0)
     }
-    let ranNum = Math.floor(Math.random()*5)
 
-    $(".text-dobal").css("display","block")
-    if(ranNum ==0){
-        $(".text-dobal").text("친구들과 내기를 한 후 밥을 얻어먹어봐요")
-    }
-    else if(ranNum ==1){
-        $(".text-dobal").text("머리와 손은 생각보다 멀리 떨어져 있습니다")
-    }
-    else if(ranNum ==2){
-        $(".text-dobal").text("얼룩말은 지푸라기를 먹어요?")
-    }
-    else if(ranNum ==3){
-        $(".text-dobal").text("플레이 스토어에서도 출시할겁니다")
-    }
+
+    
     
 
 
     $(".inso").css("display","block").text("BEST SCORE:"+localStorage.getItem("score"))
     $(".game_text").css("display","block")
     ongame = setInterval(function(){
+        let ranNum = Math.floor(Math.random()*10)
+        $(".text-dobal").css("display","block")
+        if(ranNum ==0){
+            $(".text-dobal").text("친구들과 내기를 한 후 밥을 얻어먹어봐요")
+        }
+        else if(ranNum ==1){
+            $(".text-dobal").text("머리와 손은 생각보다 멀리 떨어져 있습니다")
+        }
+        else if(ranNum ==2){
+            $(".text-dobal").text("새로운 게임 '신호등' 업데이트")
+        }
+        else if(ranNum ==3){
+            $(".text-dobal").text("플레이 스토어에서도 출시임박")
+        }
+        else if(ranNum ==4){
+            $(".text-dobal").text("SSS 달성 가능?")
+        }
+        else if(ranNum ==5){
+            $(".text-dobal").text("야호~!")
+        }
+        else if(ranNum ==6){
+            $(".text-dobal").text("만화캐릭터 테스트도 있는데..")
+        }
+        else if(ranNum ==7){
+            $(".text-dobal").text("개발자도 SSS 못찍었는데")
+        }
+        else if(ranNum ==8){
+            $(".text-dobal").text("리뷰와 별점 달아주세요~")
+        }
         Mainchr()
     },2000)
 })
@@ -203,21 +230,21 @@ window.onload = function(){
     
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
-        $( ".mcatch" ).animate({ left: "+100%" }, 600 )
+        $( ".mcatch" ).animate({ left: "+100%" }, 1500 )
     }
     else if(ranNum == 3){
         let imglink = '<img src="/resources/img/mi.png" loading="lazy" >'
      
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
-        $( ".mcatch" ).animate({ left: "+100%" }, 900 )
+        $( ".mcatch" ).animate({ left: "+100%" }, 1500 )
     }
     else if(ranNum == 4){
         let imglink = '<img src="/resources/img/pg.png" loading="lazy" >'
-    
+        
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
-        $( ".mcatch" ).animate({ left: "+100%" }, 500 )
+        $( ".mcatch" ).animate({ left: "+100%" }, 2000 )
     }
     else if(ranNum == 0){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
@@ -231,7 +258,7 @@ window.onload = function(){
   
         text_box = text_box.replace('{}',imglink)
         $(".game_text").html(text_box)
-        $( ".mcatch" ).animate({ left: "+100%" }, 800 )
+        $( ".mcatch" ).animate({ left: "+100%" }, 1200 )
     }
     else if(ranNum == 5){
         let imglink = '<img src="/resources/img/char/'+ranNum+'.png" loading="lazy" >'
@@ -255,7 +282,6 @@ window.onload = function(){
         $( ".mcatch" ).animate({ left: "+100%" }, 1500 )
     }
   }
-
 
 
   
