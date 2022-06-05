@@ -68,10 +68,7 @@ function Setting(){
      $(".touch-view").html(sbtn)
 }
 function rest(){
-    let conf = confirm("정말로 점수를 초기화하시겠습니까")
-    if(conf){
         window.localStorage.setItem('score',0)
-    }
 }
 
 function HowTo(){
