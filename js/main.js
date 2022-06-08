@@ -9,6 +9,7 @@ let lang = localStorage.getItem('lang');
 function Start(){
     clearInterval(ongame)
     $(".text-dobal").css("display","none")
+    $(".adms").css("display","none")
     $(".game_text").css("display","none")
     $(".inso").css("display","none")
     startbtn.style.display = "none"
@@ -79,6 +80,7 @@ function Lang(){
 
 function Setting(){
     clearInterval(ongame)
+    $(".adms").css("display","none")
     $(".text-dobal").css("display","none")
     $(".inso").css("display","none")
     $(".game_text").css("display","none")
@@ -114,6 +116,7 @@ function rest(){
 
 function HowTo(){
     clearInterval(ongame)
+    $(".adms").css("display","none")
     $(".text-dobal").css("display","none")
     $(".inso").css("display","none")
     $(".game_text").css("display","none")
