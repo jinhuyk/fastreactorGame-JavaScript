@@ -549,7 +549,7 @@ function PMPD(){
     let ranNum2 = Math.floor(Math.random()*10)
     let ranNum3 =Math.floor(Math.random()*4)+1
     let ranNum4 = Math.floor(Math.random()*3)+1
-    if(ranNum3 == 2) {
+    if(ranNum3 == 4) {
         if(soloscore>=110){
             if(ranNum4 == 2){
                 let rst =ranNum-ranNum2
