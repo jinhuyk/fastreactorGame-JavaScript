@@ -18,7 +18,7 @@ FAST REACTOR GAME
 
 ## 🚀  배포
 
-서버가 없는 프로젝트이다. html을 실행시키면 된다. 
+서버가 없는 프로젝트이다. html을 실행시키면 된다
 
 [FastReactor](https://fastreactor.netlify.app/)
 
