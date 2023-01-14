@@ -1,22 +1,22 @@
 # FAST REACTOR GAME (오픈소스)
 
-## 🖥 프로젝트 명
+## 프로젝트 명
 
 FAST REACTOR GAME
 
-## 💡 기획 및 개발
+## 기획 및 개발
 
 문진혁
 
-## ⌚ 제작 기간
+## 제작 기간
 
 2022.05.31 ~ 2022.06.09 
 
-## ⚙ 사용 기술
+## 사용 기술
 
 - **Front-End**: Html , Css , Bootstrap, JavaScript
 
-## 🚀  배포
+## 배포
 
 서버가 없는 프로젝트이다. html을 실행시키면 된다
 
