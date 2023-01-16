@@ -163,8 +163,6 @@ function Result(score){
     rad.volume = 0.1
     rad.play()
     
-
-    
     $(".inso").css("display","block").text("BEST SCORE:"+localStorage.getItem("score"))
     if(score >= localStorage.getItem("score")){
         localStorage.setItem("score",score)

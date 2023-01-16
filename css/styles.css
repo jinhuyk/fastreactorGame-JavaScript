@@ -30,7 +30,6 @@
 .no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
 .menu-btn{
     width: 200px;
-    
 }
 .btn {
     margin: 6px;
@@ -45,7 +44,6 @@ html {
     width:33%;
     margin: auto;
 }
-
 .desc {
     font-size: medium;
 }
@@ -61,19 +59,16 @@ html {
     margin: auto;
     width: 50%;
 }
-
 .setting {
     height: 0;
     width: 0;
 }
-
 footer{
     height: 100px;
   position : relative;
   transform : translateY(-100%);
 
 }
-
 #wrapper{
     height: auto;
     min-height: 100%;
